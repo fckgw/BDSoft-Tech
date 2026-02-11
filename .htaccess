@@ -1,0 +1,34 @@
+# ----------------------------------------------------------------------
+# Configurações BDSoft - Otimizado para Locaweb
+# ----------------------------------------------------------------------
+
+# 1. Impede a visualização de pastas (Segurança)
+Options -Indexes
+
+# 2. Define o charset padrão para UTF-8
+AddDefaultCharset UTF-8
+
+# 3. Ativa o motor de reescrita
+RewriteEngine On
+
+# 4. Forçar HTTPS (Opcional, mas recomendado para passar credibilidade tecnológica)
+# Se der erro 500 ao ativar, coloque um # na frente das duas linhas abaixo
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 5. Remover a extensão .php da URL (URLs Amigáveis)
+# Exemplo: SeuSite.com.br/contato em vez de SeuSite.com.br/contato.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# 6. Páginas de Erro Personalizadas (Opcional)
+# ErrorDocument 404 /404.php
+# ErrorDocument 500 /500.php
+
+# ----------------------------------------------------------------------
+# Caso o erro 500 persista na Locaweb, tente comentar a linha abaixo:
+# Options +FollowSymLinks 
+# E use esta no lugar:
+Options +SymLinksIfOwnerMatch
