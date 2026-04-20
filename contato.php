@@ -26,6 +26,8 @@ if (file_exists('phpmailer/PHPMailer.php')) {
 $status_msg = "";
 $whatsapp_formatado = "(31) 97195-7751";
 $email_comercial = "comercial@bdsoft.com.br";
+$instagram_url = "https://www.instagram.com/bdsoftech/";
+$linkedin_url = "https://www.linkedin.com/company/bdsoft-tecnologia/";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome     = strip_tags(trim($_POST['nome']));
@@ -128,7 +130,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .breadcrumb-area h2 { font-size: 52px; font-weight: 800; }
         .sub-text-agro { color: #78e08f; font-size: 20px; font-weight: 600; display: block; margin-top: 30px; }
 
-        /* Tracinho Lateral que você gosta */
         .contact-info-box {
             padding: 30px;
             background: #fdfdfd;
@@ -144,6 +145,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             background: #2c5e2e; border: none; padding: 15px; font-size: 18px; border-radius: 10px; transition: 0.3s; 
         }
         .btn-enviar:hover { background: #ffcc00; color: #2c5e2e; transform: translateY(-3px); }
+
+        /* FOOTER CLEAN STYLE */
+        .footer-clean { background: #111; color: #eee; padding: 80px 0 30px; }
+        .footer-clean h4 { color: #fff; font-weight: 700; margin-bottom: 25px; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-clean p { font-size: 15px; opacity: 0.8; }
+        .footer-clean .social-links a { 
+            color: #fff; font-size: 22px; margin-right: 20px; transition: 0.3s; 
+            display: inline-block; background: rgba(255,255,255,0.1); width: 45px; height: 45px; 
+            line-height: 45px; text-align: center; border-radius: 50%;
+        }
+        .footer-clean .social-links a:hover { background: #2c5e2e; transform: translateY(-5px); }
+        .footer-clean ul li { list-style: none; margin-bottom: 12px; }
+        .footer-clean ul li a { color: #eee; opacity: 0.8; transition: 0.3s; text-decoration: none; }
+        .footer-clean ul li a:hover { opacity: 1; color: #ffcc00; padding-left: 5px; }
+        .footer-bottom-border { border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; padding-top: 30px; font-size: 13px; opacity: 0.5; }
     </style>
 </head>
 <body>
@@ -170,7 +186,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="container" style="padding: 90px 0;">
         <div class="row g-5">
-            <!-- Canais com Tracinho Lateral -->
             <div class="col-lg-5">
                 <div class="contact-info-box shadow-sm">
                     <h3 style="color: #2c5e2e; font-weight: 800; margin-bottom: 25px;">Canais Diretos</h3>
@@ -186,7 +201,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
 
-            <!-- Formulário Completo -->
             <div class="col-lg-7">
                 <div class="form-box-agro">
                     <?php echo $status_msg; ?>
@@ -231,10 +245,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <footer class="bg-dark text-light p-5 text-center">
+      <!-- CRIAÇÃO DO RODAPE -->
+    <!-- FOOTER CLEAN STYLE -->
+    <footer class="footer-clean">
         <div class="container">
-            <img src="assets/img/Logo-BDSoft-Tech-CompletoOficial.png" width="160" class="mb-4">
-            <p class="mb-0">&copy; <?php echo date("Y"); ?> BDSoftTech Agro - Tecnologia que Transforma Negócios.</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-5">
+                     <h4>Navegação</h4>
+                    <ul class="p-0">
+                        <li><a href="index.php">Início</a></li>
+                        <li><a href="gestao-financeira.php">Segmentos | Gestão Financeira</a></li>
+                        <li><a href="gestao-producao.php">Segmentos | Gestão Produção</a></li>
+                        <li><a href="indicadores-bi-ia.php">Segmentos | Gestão BI & IA</a></li>
+                        <li><a href="automacao.php">Segmentos | Gestão Para seu Negocio</a></li>
+                        <li><a href="index.php#pilares">Diferenciais</a></li>
+                        <li><a href="contato.php">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-5 text-center">
+                    <h4>Conecte-se conosco</h4>
+                    <p>Acompanhe nossa jornada e as inovações que estão transformando o mercado.</p>
+                    <div class="social-links mt-4">
+                        <a href="<?php echo $instagram_url; ?>" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="<?php echo $linkedin_url; ?>" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-5 text-right text-md-center">
+                    <h4>Contato</h4>
+                    <p>E-mail: <?php echo $email_comercial; ?></p>
+                    <p>WhatsApp: <?php echo $whatsapp_formatado; ?></p>
+                    <p>Atendimento Nacional</p>
+                </div>
+            </div>
+            <div class="footer-bottom-border text-center">
+                <p class="mb-0">&copy; <?php echo date("Y"); ?> BDSoftTech - Todos os Direitos Reservados. Projetando o amanhã com tecnologia hoje.</p>
+            </div>
         </div>
     </footer>
 
